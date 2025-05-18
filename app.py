@@ -10,7 +10,30 @@ df = joblib.load('df.joblib')  # Assuming df.joblib has preprocessed DataFrame o
 df = pd.read_csv('new_laptop_data.csv')  # or however you load the data
 
 # Streamlit app title
-st.title("Laptop Price Predictor")
+st.title("PricePeek💻")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #ffffff; /* You can change this color code */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .stDeployButton {display: none;}
+    .stActionButton {display: none;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 # Input selections
 company = st.selectbox('Brand', df['Company'].unique())
